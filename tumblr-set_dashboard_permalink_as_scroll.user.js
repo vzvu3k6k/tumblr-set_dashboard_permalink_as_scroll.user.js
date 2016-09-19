@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Tumblr: Set dashboard permalink as scroll
 // @description    Sets dashboard permalink to location bar as you scroll
-// @version        1.0
+// @version        1.1
 // @author         vzvu3k6k
 // @match          https://www.tumblr.com/dashboard*
 // @grant          none

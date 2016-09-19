@@ -9,6 +9,8 @@
 // @license        CC0
 // ==/UserScript==
 
+var initialState = location.href;
+
 function replaceState(){
   // `Tumblr.fastDashboard.attached` has post nodes in and around visible area.
   var posts = Tumblr.fastDashboard.attached;
@@ -29,10 +31,12 @@ function replaceState(){
 
   if(nearestPost){
     var postID = nearestPost.querySelector('.post').dataset.postId;
-    history.replaceState(null, null, '/dashboard/100/' + (+postID + 1));
-  }else{
-    history.replaceState(null, null, '/dashboard/');
+    if(postID){
+      history.replaceState(null, null, '/dashboard/100/' + (+postID + 1));
+      return;
+    }
   }
+  history.replaceState(null, null, initialState);
 }
 
 // j/k animated scroll takes `Tumblr.KeyCommands.scroll_speed` milliseconds.
